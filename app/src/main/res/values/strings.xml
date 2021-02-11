@@ -8,4 +8,5 @@
     <string name="title_notas">Notas</string>
     <string name="title_user_profile">Mi Perfil</string>
     <string name="action_add_nota">Nueva Nota</string>
+    <string name="title_activity_mapa">Map</string>
 </resources>

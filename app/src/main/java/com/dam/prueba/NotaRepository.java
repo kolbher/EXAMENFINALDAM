@@ -42,7 +42,6 @@ public class NotaRepository {
     public static class insertAsyntask extends AsyncTask<NotaEntity, Void, Void>{
         private NotaDao notaDaoAsynTask;
 
-
         // 3. Creamos el constructor
         // Para instanciar nuestro notaDaoAsynTask con el dao que recibimos
         insertAsyntask(NotaDao dao){
@@ -59,9 +58,12 @@ public class NotaRepository {
             return null;
         }
     }
+    public void update(NotaEntity nota){
+        new updateAsyntask(notaDao).execute(nota);
+    }
     public static class updateAsyntask extends AsyncTask<NotaEntity, Void, Void>{
         private NotaDao notaDaoAsynTask;
-        private NotaDao notaDao;
+
         // 3. Creamos el constructor
         // Para instanciar nuestro notaDaoAsynTask con el dao que recibimos
         updateAsyntask(NotaDao dao){
@@ -74,11 +76,10 @@ public class NotaRepository {
         protected Void doInBackground(NotaEntity... notaEntities) {
             // HAcemos el insert del primer parámetro
             // (Que en realidad es la única)que nos han pasado
-            notaDaoAsynTask.update((notaEntities[0]));
+            notaDaoAsynTask.update(notaEntities[0]);
             return null;
         }
-        public void update(NotaEntity nota){
-            new updateAsyntask(notaDao).execute(nota);
-        }
+
+
     }
 }
